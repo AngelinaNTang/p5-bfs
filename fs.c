@@ -191,8 +191,8 @@ i32 fsSize(i32 fd) {
 // destination file.  On success, return 0.  On failure, abort
 // ============================================================================
 i32 fsWrite(i32 fd, i32 numb, void* buf) {
-  i8 wholeBuffer[2000];
-  memcpy(wholeBuffer, buf, 2000);
+  i8 wholeBuffer[2048];
+  memcpy(wholeBuffer, buf, 2048);
   i32 fbn = bfsTell(fd) / BYTESPERBLOCK;
   i32 inum = bfsFdToInum(fd);
   i32 dbn = bfsFbnToDbn(inum, fbn);
